@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doc</title>
+    <style>
+        body {
+            font-family: Consolas;
+            background-color: rgb(255, 255, 255);
+            color: rgb(44, 44, 44);
+        }
+
+        .link,
+        .header1 {
+            background-color: transparent;
+            color: rgb(65, 65, 65);
+            margin: 5px;
+            border: 1px solid rgba(255, 255, 255, 0);
+
+            text-shadow: 2px 2px 8px rgb(255, 255, 255);
+            align-items: center;
+            font-style: normal;
+            font-size: 20px;
+            display: flex;
+            transition: 0.53s;
+        }
+
+        .link:hover {
+            color: rgba(40, 40, 40, 0.944);
+            font-weight: bolder;
+            text-shadow: 1px 1px 18px rgb(0, 213, 255);
+            border-radius: 1px 1px;
+            font-size: 25px;
+            background-color: aqua;
+            
+        }
+
+        .header1 { font-size: 35px; }
+
+        .header2 {
+            font-size: 30px;
+            background-color: rgb(45, 45, 45);
+            padding: 10px;
+            color: aliceblue;
+        }
+        .figcaption { font-size: 20px; }
+        .icon { font-size: 30px; }
+        .bookshelf { background-color: rgba(231, 231, 231, 0); max-width: 1080px; margin: 0 auto;}
+        img { width: 100px; height: 100px; }
+        .icon {transition: 0.53s; }
+        .icon:hover{ transform:rotateZ(30deg); }
+        a:link { text-decoration: none; }
+        a:visited { text-decoration: none; }
+        a:hover { text-decoration: none; }
+        a:active { text-decoration: none; }
+    </style>
+</head>
+
+<body>
+<div id="h2content">&#128218; Loading... 
+        <script>
+        function GenerateIndex(elementId) {
+            debugger;
+            var baseUrl = window.location.href;
+            let repoPath = window.location.host.replace(".github.io","")+ window.location.pathname;
+            
+            //repoPath = "devcheat/cli/";//comment this line before deploy
+
+            let fetchUrl = `https://api.github.com/repos/${repoPath}git/trees/main?recursive=1`;
+
+            (async () => {
+                debugger;
+                const response = await fetch(fetchUrl);
+                const data = await response.json();
+
+                let htmlString = "";
+                if (repoPath != null)
+                    htmlString = `<h2 id="h2" class="header2">&#128218; ${repoPath}</h2>`;
+
+                for (let file of data.tree) {
+                    if (file.path.toLowerCase().endsWith('.md') == true) {
+                        var actualpath = baseUrl + file.path;
+                        var absoluteUrl = actualpath.replace(".md", "").replace("/index", "");
+
+                        var fileName = (file.path).replace("/index.md", "");
+                        fileName = (fileName).replace(".md", "");
+
+                        var displayName = fileName.split('/');
+                        if (displayName.length >= 2) {
+                            displayName = `<div class="icon">&#128218;</div><b>${displayName[0]}</b>/${displayName[displayName.length - 1]}`;
+                        }
+                        else {
+                            displayName = `<div class="icon">&#128196;</div> ${displayName[displayName.length - 1]}`;
+                        }
+
+                        var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+                        htmlString += `<a class="link" href="${absoluteUrl}">${displayName}</a>`;
+                    }
+                }
+
+                htmlString += '';
+                var result = "<div class='bookshelf'>";
+                result += htmlString;
+                result += '</div>';
+
+                document.getElementById(elementId).innerHTML = result;
+            })();
+        }
+
+        //invoker
+        
+        GenerateIndex("h2content");
+        </script>
+    </div>
+    <hr/>  
+</body>
+
+</html>
