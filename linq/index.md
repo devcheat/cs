@@ -1,5 +1,6 @@
 LINQ
 ===
+[Filtering](filtering.md)
 
 LINQ (Language Integrated Query) is a feature in C# and other .NET languages that provides a uniform and concise syntax for querying and manipulating data. It allows developers to write SQL-like queries directly in C# code to query various types of data sources, including arrays, collections, XML, databases, and even remote data services.
 
@@ -286,4 +287,5 @@ Method|	Type|	Definition|	Example
 - With a rich set of built-in operators like Where(), Select(), GroupBy(), OrderBy(), and more, LINQ has become an essential tool for modern C# development.
 
 ---
+
 ---
