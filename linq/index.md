@@ -1,6 +1,5 @@
 LINQ
 ===
-[Filtering](filtering.md)
 
 LINQ (Language Integrated Query) is a feature in C# and other .NET languages that provides a uniform and concise syntax for querying and manipulating data. It allows developers to write SQL-like queries directly in C# code to query various types of data sources, including arrays, collections, XML, databases, and even remote data services.
 
@@ -209,15 +208,15 @@ These methods allow for lazy loading of data, improving performance by delaying 
 
 ## Types of Methods
 
-- `Filtering`: Methods that help filter or reduce the sequence based on conditions.
-- `Projection`: Methods that transform elements into new forms (e.g., selecting fields, creating new objects).
-- `Sorting`: Methods that sort a sequence.
-- `Grouping`: Methods that group elements based on a key.
-- `Aggregation`: Methods that perform calculations (e.g., sum, count, average).
-- `Set Operations`: Methods for performing operations between two sequences (e.g., union, intersection).
-- `Element Operations`: Methods that operate on specific elements (e.g., First(), Last()).
-- `Materialization`: Methods that convert sequences into collections or other types.
-- `Type Conversion`: Methods that convert or cast a sequence to a different type.
+- [Filtering](filtering.md): Methods that help filter or reduce the sequence based on conditions.
+- [Projection](projection.md): Methods that transform elements into new forms (e.g., selecting fields, creating new objects).
+- [Sorting](sorting.md): Methods that sort a sequence.
+- [Grouping](grouping.md): Methods that group elements based on a key.
+- [Aggregation](aggregation.md): Methods that perform calculations (e.g., sum, count, average).
+- [Set Operations](aggregation.md): Methods for performing operations between two sequences (e.g., union, intersection).
+- [Element Operations](elementoperations.md): Methods that operate on specific elements (e.g., First(), Last()).
+- [Materialization(materialization.md)]: Methods that convert sequences into collections or other types.
+- [Type Conversion](typeconversion.md): Methods that convert or cast a sequence to a different type.
 
 This table should give you a comprehensive overview of commonly used LINQ methods, their types, and how to use them in practice.
 
@@ -289,3 +288,4 @@ Method|	Type|	Definition|	Example
 ---
 
 ---
+
